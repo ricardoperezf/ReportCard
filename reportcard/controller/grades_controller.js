@@ -17,9 +17,10 @@ angular.module('ReportCard', [])
                 })
                 .then(function (data, status, headers, config) {
                     console.log(data);
+                    alert("Data inserted");
+                    $('#modalGrades').modal('hide');
                     $scope.grades.push($scope.newGrade);
                     $scope.newGrade = {};
-                    alert("Data inserted");
 
                 }, function (error, status, headers, config) {
                     console.log(error);

@@ -2,7 +2,7 @@
 <html lang="en" ng-app="ReportCard">
 
 <head>
-    <title>Hello, world!</title>
+    <title>ReportCard</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,20 +12,55 @@
 </head>
 
 <body ng-controller="GradesController">
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalGrades" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add new grade</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label for="basic-url">Course</label>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon3">Course's name</span>
+                        <input type="text" class="form-control" id="course" aria-describedby="basic-addon3" ng-model="newGrade.course" required>
+                    </div>
+                    <label for="basic-url">Grade</label>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon3">Grade</span>
+                        <input type="number" class="form-control" id="grade" aria-describedby="basic-addon3" ng-model="newGrade.grade" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" ng-click="addPost()">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="list-group">
         <div class="row">
-            <div class="col-lg-4"></div>
-            <div class="col-lg-4">
-               <h3>All grades</h3>
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <!-- Button trigger modal -->
+                <h3>All grades</h3>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalGrades">
+                  Add new grade
+                </button>
+                <br>
                 <a href="#" class="list-group-item list-group-item-action flex-column align-items-start " ng-repeat="grade in grades">
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1">{{grade.course}}</h5>
                         <small>{{grade.date}}</small>
-                    <p class="mb-1">{{grade.grade}}</small>
+                        <p class="mb-1">{{grade.grade}}</small>
                     </div>
                 </a>
             </div>
-            <div class="col-lg-4"></div>
+            <div class="col-lg-3"></div>
         </div>
 
     </div>
