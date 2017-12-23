@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ReportCard">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    <script src="../controller/grades_controller.js"></script>
+    <title>My Grades</title>
+</head>
+<body ng-controller="GradesController">
+    <h4>Course</h4>
+    <textarea ng-model="newGrade.course" name="course"></textarea>
+    <br>
+    <h4>Grade</h4>
+    <textarea ng-model="newGrade.grade" name="grade"></textarea>
+    <br>
+    <button ng-click="addPost()">Enviar</button>
+    <br><h2>All grades</h2>
+    <ul>
+        <li ng-repeat="grade in grades">
+            <h4>{{grade.course}}</h4>
+            <p>{{grade.grade}}</p>
+            <p>{{grade.date}}</p>
+        </li>
+    </ul>
+</body>
+</html>
